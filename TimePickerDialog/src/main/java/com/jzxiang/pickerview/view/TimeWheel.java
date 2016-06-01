@@ -46,7 +46,7 @@ public class TimeWheel {
         }
     };
 
-
+    
     public TimeWheel(IController iController, View view, PickerConfig pickerConfig) {
         mIController = iController;
         mPickerConfig = pickerConfig;
@@ -143,7 +143,10 @@ public class TimeWheel {
         minute.setCyclic(mPickerConfig.cyclic);
         minute.setViewAdapter(mMinuteAdapter);
     }
-
+    /* All the below update functions are used to display the different values depending on the previous criteria.
+    For example, if we are picking up the current year 2016, the min month displayed would be June (today's date 2nd June 2016) and max December,
+    and for any other year, the min would be January and the max would be same.
+    */
     void updateMonths() {
         if (month.getVisibility() == View.GONE)
             return;
@@ -159,7 +162,8 @@ public class TimeWheel {
             month.setCurrentItem(0, false);
         }
     }
-
+    /* Similarly here depending on month days would be updated. If current date is 17th May 2016, then On display of month May, year 2016, min days would be 17.
+    But on display of June, the min date should be one. So below function is ensuring that */
     void updateDays() {
         if (day.getVisibility() == View.GONE)
             return;
