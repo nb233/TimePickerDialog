@@ -5,6 +5,12 @@ import java.util.Calendar;
 /**
  * Created by jzxiang on 16/4/19.
  */
+ 
+ /**
+  * This file basically takes the total milliseconds and with the help of these convert them into a proper date and divide it
+  * into different variables accordingly with the help of Calendar class.
+  * /
+
 public class WheelCalendar {
 
     public int year, month, day, hour, minute;
